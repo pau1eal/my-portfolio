@@ -11,51 +11,38 @@
     <div id="projects">Cargando proyectos...</div>
 
     <script>
-        // ID de tu base de datos en Notion y el Token de la integración
-        const databaseId = '10dae0d7bfa280f6b7b9d614d9e45b8d';  // ID de tu base de datos de Notion
-        const token = 'secret_eogJJj4mEDHJvJ808WypU3l0TkUgmV6PH7l7DjvEKAy';  // Tu Internal Integration Secret de Notion
+const { Client } = require("@notionhq/client");
 
-        // Mostrar en consola si los datos se están recuperando
-        console.log('Cargando proyectos desde Notion...');
+const notion = new Client({ auth: "secret_eogJJj4mEDHJvJ808WypU3l0TkUgmV6PH7l7DjvEKAy" });
+const databaseId = "10dae0d7bfa280f6b7b9d614d9e45b8d";
 
-        // Llamada a la API de Notion
-        fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json',
-                'Notion-Version': '2022-06-28'  // Versión más reciente de la API
-            }
-        })
-        .then(response => {
-            console.log('Respuesta de la API:', response);
-            return response.json();
-        })
-        .then(data => {
-            console.log('Datos recibidos:', data);  // Verifica qué datos se reciben
-            const projects = data.results;
-            const projectsDiv = document.getElementById('projects');
+async function getProjects() {
+  const response = await notion.databases.query({ database_id: databaseId });
 
-            // Limpiamos el div donde mostraremos los proyectos
-            projectsDiv.innerHTML = '';
+  const projects = response.results.map((page) => {
+    const displayName = page.properties["display-name"].title[0]?.text.content || "Sin título";
+    const link = page.properties.link.url || "#";
+    const tags = page.properties.tags.multi_select.map(tag => tag.name).join(', ');
+    const image = page.properties.imagen.files[0]?.file.url || "#";
+    const tier = page.properties.tier.select?.name || "N/A";
+    
+    return {
+      displayName,
+      link,
+      tags,
+      image,
+      tier
+    };
+  });
 
-            // Si no hay proyectos, mostramos un mensaje
-            if (projects.length === 0) {
-                projectsDiv.innerHTML = '<p>No hay proyectos disponibles.</p>';
-            }
+  return projects;
+}
 
-            // Recorremos cada proyecto en la base de datos y lo mostramos en la página
-            projects.forEach(project => {
-                const projectName = project.properties['Aa display-name']?.title[0]?.text?.content || 'Nombre no disponible';
-                const projectElement = document.createElement('p');
-                projectElement.textContent = projectName;
-                projectsDiv.appendChild(projectElement);
-            });
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos:', error);
-            document.getElementById('projects').innerHTML = '<p>Hubo un error al cargar los proyectos.</p>';
-        });
+getProjects().then((projects) => {
+  console.log("Proyectos obtenidos de Notion:", projects);
+}).catch((error) => {
+  console.error("Error al obtener los proyectos:", error);
+});
     </script>
 
 </body>
