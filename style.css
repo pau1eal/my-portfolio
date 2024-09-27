@@ -1,0 +1,849 @@
+html {
+  scroll-behavior: smooth; /* Aplica desplazamiento suave a toda la página */
+}
+
+@font-face {
+  font-family: "nympha";
+  src: url(NymphaTrial-Regular.otf);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  min-height: 100vh;
+  background-color: #353331; /* color beige NO, oscuro */
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+
+  /* background: url('FONDO.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+nav{
+  background-color: #F1E2D1;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  z-index: 1000;
+}
+
+.sidebar a:hover{
+  backdrop-filter: blur(48px);
+}
+nav ul{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav li{
+  height: 80px;
+  font-family: 'Laviossa', sans-serif;
+}
+nav a{
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color:#353331;
+}
+
+nav li:first-child{
+  margin-right: auto;
+}
+.sidebar{
+  position: fixed;
+  top: 0; 
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 999;
+}
+.sidebar li{
+  width: 100%;
+}
+.sidebar a{
+  width: 100%;
+}
+/* .menu-button{
+  /display: none;
+} */
+@media(max-width: 800px){
+  .hideOnMobile{
+    display: none;
+  }
+  .menu-button{
+    display: block;
+  }
+}
+@media(max-width: 400px){
+  .sidebar{
+    width: 100%;    
+  }
+}
+
+.hideOnMobile {           /*parche historico para la mierda d la animacion d la linea*/
+ height: 25px;
+ margin: 28px 0px 0px 0px;
+}
+
+/* .teste {
+  margin-right: 200px;
+} */
+/* el logo del diamante */
+
+.logo span {
+  font-size: 24px;
+  cursor: cell;
+  padding: 0 30px;
+}
+
+.logo svg {
+  width: 24px;
+  height: 24px;
+  padding: 0 30px;
+
+}
+
+.diamante {
+  width: 32px;
+  height: 32px;
+  margin-top: 20px;
+  padding: 0 30px;
+}
+
+/* cursores tontos */
+
+.galeria {
+  cursor: zoom-in;
+}
+
+.contacto {
+  cursor: alias;
+}
+
+.yo {
+  cursor: help;
+}
+
+.redes {
+  cursor: alias;
+}
+
+.menuboton {
+  cursor: e-resize;
+}
+
+.diamante2 {
+  cursor: cell;
+}
+
+/*                     animaciones que solo se reproducen cuando las ves y no al inicio                   */
+
+/* Estado inicial para todos los elementos animables */
+.animable {
+  opacity: 0; /* Los elementos empiezan ocultos */
+  transition: opacity 1s ease-in-out; /* Efecto de transición suave para la opacidad */
+}
+
+/* Clase general para activar la animación */
+.animable.animacion-activa {
+  opacity: 1; /* Los elementos se vuelven visibles cuando reciben la clase 'animacion-activa' */
+}
+
+
+
+/* ANIMACIONES D NAV LINKS */ 
+
+.link {
+    font-size: 18px;
+    position: relative;
+    white-space: nowrap;
+    color: #353331;
+}
+
+.link::before,
+.link::after {
+    position: absolute;
+    width: 64%;
+    height: 1px;
+    background: currentColor;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+    margin-left: 16.5%;           /* patinada tiritada mierdon salvada historica pochisima espero q no vea esto nadie*/
+}
+
+.link::before {
+    content: '';
+} 
+
+.link--jover::before {
+    transform-origin: 50% 100%;
+    transition: clip-path 0.3s, transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.link--jover:hover::before {
+    transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 0, 50% 0, 50% 100%, 50% 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.link--jover a {
+    /*display: inline-block; /* este cabron me jode la altura */
+    transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+}
+
+.agh:hover {
+    transform: translate3d(0, -2px, 0);
+}
+
+/* ACABAN ANIMACIONES D NAV LINKS y HEADER*/
+
+/*      LOGOOO      */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.box {
+  width: 60vw;  /* Aproximadamente el 50% del ancho de la pantalla */
+  height: calc(50vw / 3);  /* Mantiene la proporción 972x324, que es 3:1 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Clase específica para los logos */
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;  /* Mantiene la proporción del logo */
+  cursor: cell;
+}
+
+.logosuperior {
+  height: calc(30vw / 3);
+  margin-right: -2vw;
+}
+
+.logoinferior {
+margin-right: 4vw;
+}
+
+/* Media queries para hacer ajustes en dispositivos más pequeños */
+@media (max-width: 992px) {
+  .box {
+    width: 80vw;  /* Ajusta la caja al 80% del ancho del viewport */
+  }
+
+  .logosuperior {
+    height: calc(40vw / 3);
+    margin-right: -2vw;
+  }
+  
+  .logoinferior {
+    height: calc(70vw / 3);
+  margin-right: 5vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 90vw;  /* Para móviles, ocupa el 100% del ancho del viewport */
+    height: calc(100vw / 3);  /* Mantiene la proporción 3:1 */
+  }
+
+  .logo {
+    width: 100%;
+    height: 100%;
+  }
+
+  .logosuperior {
+    height: calc(45vw / 3);
+    margin-right: 0;
+  }
+  
+  .logoinferior {
+    height: calc(80vw / 3);
+  margin-right: 2vw;
+  }
+}
+
+@keyframes aparecer-y-bajar {
+  0% {
+    transform: translateY(-25px); /* El elemento empieza 50px arriba de su posición */
+    opacity: 0; /* El elemento es completamente invisible */
+  }
+  100% {
+    transform: translateY(0); /* El elemento regresa a su posición original */
+    opacity: 1; /* El elemento es completamente visible */
+  }
+}
+
+.aparecer-bajar {
+  opacity: 0; /* Empieza oculto */
+  transition: opacity 1s ease-in-out; /* Transición suave */
+}
+
+.aparecer-bajar.animacion-activa {
+  opacity: 1;
+  animation: aparecer-y-bajar 0.5s ease-out forwards; /* 1.5s duración, easing suave, mantiene estado final */
+}
+
+@keyframes aparecer-y-bajar2 {
+  0% {
+    transform: translateY(-250px); /* El elemento empieza 50px arriba de su posición */
+    transform: translateX(-40px);
+    opacity: 0; /* El elemento es completamente invisible */
+  }
+  100% {
+    transform: translateY(0); /* El elemento regresa a su posición original */
+    transform: translateX(0);
+    opacity: 1; /* El elemento es completamente visible */
+  }
+}
+
+.aparecer-bajar2 {
+  opacity: 0; /* Empieza oculto */
+  transition: opacity 1s ease-in-out; /* Transición suave */
+}
+
+.aparecer-bajar2.animacion-activa {
+  opacity: 1;
+  animation: aparecer-y-bajar2 0.75s ease-out forwards; /* 1.5s duración, easing suave, mantiene estado final */
+}
+
+@keyframes aparecer-y-bajar3 {
+  0% {
+    transform: translateY(-250px); /* El elemento empieza 50px arriba de su posición */
+    transform: translateX(40px);
+    opacity: 0; /* El elemento es completamente invisible */
+  }
+  100% {
+    transform: translateY(0); /* El elemento regresa a su posición original */
+    transform: translateX(0);
+    opacity: 1; /* El elemento es completamente visible */
+  }
+}
+
+.aparecer-bajar3 {
+  opacity: 0; /* Empieza oculto */
+  transition: opacity 1s ease-in-out; /* Transición suave */
+}
+
+.aparecer-bajar3.animacion-activa {
+  opacity: 1;
+  animation: aparecer-y-bajar3 0.75s ease-out forwards; /* 1.5s duración, easing suave, mantiene estado final */
+}
+
+
+
+
+/*              ACABA LOGO    -     empieza divisor de los cojones        */
+
+
+
+
+.divisor {
+  margin-bottom: 20vh;
+}
+
+.dividido {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;   /* Ocupa todo el ancho de la ventana */
+  max-width: 100vw;
+  height: 11.36vw;  /* El alto es proporcional al ancho (100 de alto/1320 de ancho ≈ 7.5vw) */
+}
+
+.moving-svg {
+  position: absolute;
+  top: 0;
+  width: 1320px;
+  height: 100%;   /* El SVG ocupará el 100% de la altura del contenedor */
+}
+
+/* Ajuste del contenedor para pantallas pequeñas */
+@media (max-width: 1350px) {
+  .dividido {
+    height: 15vw; /* Para pantallas más pequeñas, ajustamos el alto proporcionalmente */
+  }
+}
+@media (max-width: 992px) {
+  .dividido {
+    height: 20vw; /* Para pantallas más pequeñas, ajustamos el alto proporcionalmente */
+  }
+}
+@media (max-width: 600px) {
+  .dividido {
+    height: 50vw; /* Para pantallas más pequeñas, ajustamos el alto proporcionalmente */
+  }
+}
+
+.dividido h2 {
+  z-index: 10;
+  font-family: 'Laviossa', sans-serif;
+  color: #F1E2D1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Ajusta la posición */
+  margin: 0; /* Elimina el margen por defecto del párrafo */
+}
+
+.divisor_titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Esto recorta el SVG por los lados */
+  width: 100vw; /* El contenedor ocupa todo el ancho de la ventana */
+  height: 100%; /* Mantén la altura original del SVG */
+}
+
+.divisor_titulo2{
+  width: 1920px; /* Mantén el ancho original del SVG */
+  flex-shrink: 0; /* Evita que el SVG se reduzca dentro del contenedor */
+}
+
+/*                                   about me                                        */
+
+.aboutbody {
+  /* background-color: rgb(0, 0, 0); solo era pa no liarme e */
+  width: 100%;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.aboutmecontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  }
+  .about-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  /* background-color: #333;
+  border-radius: 8px; */
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  }
+  .fotoyo1 {
+
+    /* aspect-ratio: 9:16;
+    object-fit: contain; */
+    
+    /* margin-right: 80px; */
+    margin-right: 3vw;
+  }
+    
+  .yonomovil {
+      border-radius: 8px;
+      width: clamp(250px, 20.5vw, 1000px);
+      height: 100%;
+    }
+    
+  .miniyo {
+      width: 40%;
+      margin-top: -50%;
+      margin-left: 13vw;
+      cursor: grab;
+  }
+
+  .text-section {
+  color: #F1E2D1;
+  font-family: 'Arial', sans-serif;
+  max-width: 700px;
+  }
+  .title-about-me {
+  font-size: 2.5rem;
+  font-weight: lighter;
+  letter-spacing: 3pt;
+  margin-bottom: 2vw;
+  margin-top: 3vw;
+  font-family: "nympha";
+  }
+  .name-aboutme {
+  font-size: 1.4rem;
+  margin-bottom: 1.6vw;
+  }
+  .text-section p {
+  /* font-size: 12pt; */
+  font-size: calc(13px + 0.3vw);
+  margin-bottom: 15px;
+  line-height: 1.5;
+  cursor: help;
+  }
+  .text-section a {
+  color: #F1E2D1;
+  text-decoration: none;
+  cursor: grab;
+  font-weight: bold;
+  font-family: 'Laviossa', sans-serif;
+  font-size: calc(10px + 0.6vw);
+  }
+  .text-section a:hover {
+  text-decoration: underline;
+  }
+  
+  .parrafoabajo {
+    margin-bottom: 2vw;
+  }
+  
+  .fotoyo2 {
+      display: none;
+      z-index: 990;
+    }
+  
+  .miniyo2 {
+    position:absolute;
+    width: 23%;
+    margin-top: 135px;
+    margin-left: 210px;
+  }
+  /* Responsivo para pantallas medianas (tabletas) */
+  
+  /* Responsivo para pantallas pequeñas (móviles) */
+  @media (max-width: 750px) {
+  /* .about-me {
+  padding: 10px;
+  }
+  img {
+  width: 150px;
+  margin-right: 0;
+  margin-bottom: 15px;
+  }
+  
+  }
+  h2 {
+  font-size: 1.2rem;
+  }
+  p {
+  font-size: 0.85rem;
+  }
+  a {
+  font-size: 0.85rem;
+  } */
+  .title-about-me {
+  display: none;
+  }
+  .text-section {
+  max-width: 100%;
+  }
+  }
+  
+  @media (max-width: 555px) {
+  
+    .fotoyo1 {
+      display: none;
+    }
+  
+    .fotoyo2 {
+      display: flex;
+      margin-bottom: 2vh;
+      justify-content: center;
+    }
+
+    .yomovil {
+      width: 100%;
+    }
+  
+    .aboutbody {
+      align-items: unset;
+    }
+  
+    .text-section a {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .parrafoabajo {
+    display: none;
+  }
+  
+  .text-section p {
+    font-size: calc(13px + 0.3vw);
+  }
+  
+  }
+  
+  @media (max-width: 640px) {
+    .text-section p {
+      font-size: calc(11px + 0.3vw);
+    }
+  }
+
+  .mi-enlace {
+    transition: color 0.3s ease;
+  }
+
+  .mi-enlace:active {
+    color: green;
+}
+
+.enlace-copiable.copiado {
+  cursor: grabbing;
+}
+
+.hvr-bounce-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-out:hover, .hvr-bounce-out:focus, .hvr-bounce-out:active {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.95);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+  /*            ACABA ABOUT ME Y EMPIEZA SKILLS          */
+
+  .dropdown {
+    width: 100%;
+    background-color: #e6dbc9; /* Color beige */
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+  }
+
+  .dropdown-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .dropdown h2 {
+    font-size: 2.5rem;
+    margin-right: 40px; /* Espacio para el caret */
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+    font-family: "nympha";
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2pt;
+    color: #353331;
+  }
+
+  /* Flecha caret */
+  .caret {
+    position: absolute;
+    right: 6%;
+    top: 70%;
+    transform: translateY(-50%);
+    width: 40px;
+    transition: transform 0.3s;
+  }
+
+  /* Flecha rotada cuando está activo */
+  .dropdown.active .caret {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #C7BBAD; /* Rojo (xd*/ 
+    transition: max-height 0.5s ease;
+  }
+
+  /* Mostrar contenido cuando está activo */
+  .dropdown.active .dropdown-content {
+    max-height: 1250px; /* Ajusta según el contenido */
+  }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 45px;
+    gap: 20px;
+  }
+
+  /* Fila siempre visible (fuera del dropdown) */
+  .skills-always-visible {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 45px;
+  }
+
+  .skill {
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .skill img {
+    width: 60px;
+    height: auto; /* Mantiene la proporción original de la imagen */
+    aspect-ratio: 1 / 1; /* Define una proporción 1:1 */
+    object-fit: cover; /* Ajusta la imagen para que cubra todo el contenedor */
+    background-color:#353331;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+
+  .skill .text-and-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .skill .skill-name {
+    color:#353331;
+    font-family: 'Laviossa', sans-serif;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 5px; /* Espacio entre texto y barra */
+  }
+
+  .skill .progress-bar {
+    height: 13px;
+    background-color: #353331;
+    border-radius: 10px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .skill .progress-fill {
+    height: 68%;
+    margin-top: 2px;
+    margin-left: 2px;
+    background-color: #E6DBC9; /* Color verde para la barra de progreso */
+    border-radius: 10px;
+    /*transition: width 0.5s ease; /* Efecto suave */
+    animation: fillProgress 2s ease forwards; /* Anima el width de 2% al valor final */
+  }
+
+  .skill .progress-fill p {
+    position: absolute;
+    display: flex;
+    horizontal-align: center; 
+    color:#353331;
+    font-size: 60%;
+    font-family: 'Laviossa', sans-serif;
+    margin-bottom: 12px;
+    font-weight: bold;
+    bottom: 11%;
+    left:50%;
+    z-index: 900;
+    /* transform: translateX(-50%); */
+  }
+
+  @keyframes fillProgress {
+    from {
+      width: 2%;
+    }
+    to {
+      width: var(--progress-width);
+    }
+  }
+  
+  .bar-animable {
+    opacity: 0; /* Los elementos empiezan ocultos */
+    transition: fillProgress 2s ease forwards; /* Anima el width de 2% al valor final */
+  }
+
+  .bar-animable.animacion-activa {
+    opacity: 1; /* Los elementos se vuelven visibles cuando reciben la clase 'animacion-activa' */
+  }
+
+  /* Media Queries para hacer que el diseño sea responsive */
+
+  /* Pantallas de tablets (768px a 1024px) */
+  @media (max-width: 1024px) and (min-width: 569px) {
+    .skills-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+    }
+
+    .skills-always-visible {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+      grid-template-rows: repeat(2, auto); /* 2 filas */
+    }
+
+    /* Mostrar la cuarta skill visible solo en tablets */
+    .skills-always-visible .skill:nth-child(4) {
+      display: flex;
+    }
+  }
+
+  /* Pantallas de móviles (menos de 768px) */
+  @media (max-width: 568px) {
+    .skills-container, .skills-always-visible {
+      grid-template-columns: 1fr; /* 1 columna en móvil */
+    }
+
+    .dropdown h2 {
+      font-size: 1.5em; /* Texto del título más pequeño en móviles */
+    }
+
+    .skills-always-visible .skill:nth-child(4) {
+      display: none;
+    }
+
+  }
+
+  /* Pantallas grandes (más de 1024px) */
+  @media (min-width: 1025px) {
+    .skills-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas grandes */
+    }
+
+    .skills-always-visible {
+      grid-template-columns: repeat(3, 1fr); /* Solo 3 columnas para skills always visible */
+    }
+
+    /* Ocultar la cuarta skill visible en pantallas grandes */
+    .skills-always-visible .skill:nth-child(4) {
+      display: none;
+    }
+  }
+
+
+/* por resolver: 
+menú abierto tapa V
+animaciones v
+y linkear d vuelta v
+hovers v
+navlinks suben v
+*/
