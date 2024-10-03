@@ -364,42 +364,47 @@ margin-right: 4vw;
 
 
 
-.divisor {
+ /* Estilos generales del divisor */
+ .divisor {
   margin-bottom: 20vh;
 }
 
 .dividido {
   position: relative;
   overflow: hidden;
-  width: 100vw;   /* Ocupa todo el ancho de la ventana */
+  width: 100vw;
   max-width: 100vw;
-  height: 11.36vw;  /* El alto es proporcional al ancho (100 de alto/1320 de ancho ≈ 7.5vw) */
+  height: 11.36vw;  /* Mantén este tamaño según tu diseño */
 }
 
+/* Estilos de las imágenes SVG */
 .moving-svg {
   position: absolute;
   top: 0;
   width: 1320px;
-  height: 100%;   /* El SVG ocupará el 100% de la altura del contenedor */
+  height: 100%;
 }
 
-/* Ajuste del contenedor para pantallas pequeñas */
+/* Ajustes de media queries */
 @media (max-width: 1350px) {
   .dividido {
-    height: 15vw; /* Para pantallas más pequeñas, ajustamos el alto proporcionalmente */
-  }
-}
-@media (max-width: 992px) {
-  .dividido {
-    height: 20vw; /* Para pantallas más pequeñas, ajustamos el alto proporcionalmente */
-  }
-}
-@media (max-width: 600px) {
-  .dividido {
-    height: 50vw; /* Para pantallas más pequeñas, ajustamos el alto proporcionalmente */
+    height: 15vw;
   }
 }
 
+@media (max-width: 992px) {
+  .dividido {
+    height: 20vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .dividido {
+    height: 50vw;
+  }
+}
+
+/* Posicionamiento del título */
 .dividido h2 {
   z-index: 10;
   font-family: 'Laviossa', sans-serif;
@@ -407,22 +412,26 @@ margin-right: 4vw;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Ajusta la posición */
-  margin: 0; /* Elimina el margen por defecto del párrafo */
+  transform: translate(-50%, -50%);
+  margin: 0;
 }
 
 .divisor_titulo {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Esto recorta el SVG por los lados */
-  width: 100vw; /* El contenedor ocupa todo el ancho de la ventana */
-  height: 100%; /* Mantén la altura original del SVG */
+  overflow: hidden;
+  width: 100vw;
+  height: 100%;
 }
 
-.divisor_titulo2{
-  width: 1920px; /* Mantén el ancho original del SVG */
-  flex-shrink: 0; /* Evita que el SVG se reduzca dentro del contenedor */
+.divisor_titulo2 {
+  width: 1920px;
+  flex-shrink: 0;
+}
+
+#Divisor2 {
+  margin-top: 100px;
 }
 
 /*                                   about me                                        */
@@ -838,6 +847,343 @@ margin-right: 4vw;
       display: none;
     }
   }
+/*                                      galeria                                          */
+
+.espacio {
+  height: 100vh; /* Espacio en blanco antes y después del contenido */
+  width: 100%; /* Hacer que el espacio ocupe el 100% del ancho */
+  background-color: #fff; /* Fondo blanco para distinguir */
+  display: flex;
+  justify-content: center; /* Centrar contenido en el eje horizontal */
+  align-items: center; /* Centrar contenido en el eje vertical */
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Hacer que las filas ocupen el ancho completo */
+}
+
+.fila {
+  display: flex;
+  justify-content: flex-start; /* Alinear las cajas al principio para que se muevan horizontalmente */
+  margin-bottom: 10px; /* Espacio uniforme entre filas */
+  position: relative;
+  width: 100%; /* Hacer que las filas ocupen el ancho completo */
+}
+
+.contenedor-cajas {
+  display: flex;
+  width: max-content; /* El contenedor debe ajustar su ancho al contenido, permitiendo desbordamiento horizontal */
+}
+
+.caja {
+  width: 450px;
+  height: 250px;
+  background-color: #F1E2D1;
+  border-radius: 15px; /* Esquinas redondeadas */
+  margin: 10px; /* Espacio uniforme entre las cajas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar las cajas */
+  transition: transform 0.5s ease; /* Transición suave al moverse */
+}
+
+.fila1 .caja,
+.fila3 .caja {
+  transform: translateX(0); /* Posición inicial */
+}
+
+.fila2 {
+/*    margin-left: -25vw; /* Desplazamiento hacia la izquierda para la fila del medio */
+margin-left: -500vw; 
+}
+
+.fila1 {
+/*    margin-left: -25vw; /* Desplazamiento hacia la izquierda para la fila del medio */
+margin-right: 200vw; 
+}
+
+.fila3 {
+/*    margin-left: -25vw; /* Desplazamiento hacia la izquierda para la fila del medio */
+margin-right: 200vw; 
+}
+
+/*                    CONTAAACT                  */
+
+        /* Contenedor principal para el título y los iconos */
+        .contact-header {
+          font-family: 'nympha', sans-serif;
+
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start; /* Alinear al inicio en horizontal */
+          width: 100%;
+          max-width: 600px; /* Aseguramos que no exceda el ancho */
+          margin-top: 50px; /* Ajustar margen superior */
+      }
+
+      /* Contenedor para "LET'S" y los iconos */
+      .top-row {
+
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+      }
+
+      /* Ajustamos el tamaño de fuente para "LET'S" */
+      .top-row h1 {
+        font-weight: 599;
+          font-size: 4rem; /* Ajuste del tamaño de fuente */
+          margin: 0;
+          line-height: 1.1;
+          color: #353331;
+      }
+
+      /* Iconos a la derecha de "LET'S" */
+      .social-icons {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin-bottom: 1vh;
+      }
+
+      .social-icons a {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #353331;
+          border-radius: 50%;
+          width: 40px; /* Aumentar tamaño de los círculos */
+          height: 40px; /* Aumentar tamaño de los círculos */
+          margin-left: 10px;
+          text-decoration: none;
+      }
+
+      .social-icons a img {
+          width: 50%; /* Aumentar tamaño de los iconos */
+          height: 50%; /* Aumentar tamaño de los iconos */
+      }
+
+      /* Ajustamos el tamaño de fuente para "KEEP IN TOUCH" */
+      .bottom-row {
+
+          width: 100%; /* Aseguramos que ocupe todo el ancho */
+          padding-left: 0; /* Sin padding a la izquierda */
+      }
+
+      .bottom-row h2 {
+        font-weight: 599;
+          font-size: 4.5rem; /* Ajuste del tamaño de fuente */
+          margin: 0;
+          color: #353331;
+          text-align: left; /* Justificar a la izquierda */
+          width: fit-content; /* Permitir que el ancho se ajuste al contenido */
+          white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+          overflow: hidden; /* Ocultar el desbordamiento si hay texto demasiado largo */
+          text-overflow: ellipsis; /* Añadir puntos suspensivos si el texto es demasiado largo */
+      }
+
+      .below-header {
+
+          width: 100%;
+          max-width: 600px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+
+      /* Estilos para el formulario */
+      .contact-form {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          font-family: 'Laviossa';
+      }
+
+      .contact-form textarea {
+          width: 90%;
+          padding: 10px;
+          font-family: 'Laviossa', sans-serif !important;
+          font-size: 1.3rem;
+          background-color: #F1E2D1;
+          border: none;
+          border-radius: 8px;
+          color: #353331;
+          resize: none;
+          margin-bottom: 20px;
+          height: 140px;
+
+          border-bottom: 2px solid black; /* Línea horizontal negra de 2px en la parte inferior */
+          border-radius: 8px 8px 0 0; /* Bordes redondeados arriba, pero no abajo */
+      }
+
+      .contact-form textarea:focus {
+          outline: none;
+      }
+
+      .contact-form textarea::placeholder {
+        opacity: 75%;
+      }
+
+      .email-and-button {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+      }
+
+      .email-input {
+          font-family: 'Laviossa', sans-serif;
+          width: 75%;
+          padding: 15px;
+          font-size: 1.2rem;
+          background-color: #F1E2D1;
+          border: none;
+          border-radius: 8px;
+          color: #353331;
+          margin-right: 20px;
+      }
+
+      .email-input::placeholder {
+          color: #353331;
+          opacity: 75%;
+      }
+
+      .send-button {
+        font-family: 'Laviossa', sans-serif;
+          background-color: #353331;
+          color: #F1E2D1;
+          padding: 15px 30px;
+          border: none;
+          border-radius: 50px;
+          font-size: 1.2rem;
+          cursor: pointer;
+          width: 20%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+      .send-button:hover {
+          background-color: #555555;
+          animation: shakeX 2s ease forwards;
+      }
+
+      @keyframes shakeX {
+        from,
+        to {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+            -webkit-transform: translate3d(-10px, 0, 0);
+            transform: translate3d(-10px, 0, 0);
+        }
+
+        20%,
+        40%,
+        60%,
+        80% {
+            -webkit-transform: translate3d(10px, 0, 0);
+            transform: translate3d(10px, 0, 0);
+        }
+        }
+        .animate__shakeX {
+        -webkit-animation-name: shakeX;
+        animation-name: shakeX;
+        }
+
+      .contact {
+          margin-top: 4vh;
+          padding-bottom: 1vh;
+          background-color: #F1E2D1; /* Color de fondo para el cuerpo */
+          display: flex; /* Añadir flex a este contenedor */
+          flex-direction: column;
+          justify-content: flex-start; /* Alinear al inicio verticalmente */
+          align-items: center;
+          width: 100%;
+          position: relative;
+          z-index: 0;
+          overflow-x: hidden; /* Hide horizontal scrollbar */
+      }
+
+      .tw {
+        max-height: 7%;
+        max-width: 7%;
+        position: absolute;
+        opacity: 100%;
+      }
+
+      .tw:hover {
+        opacity: 100%;
+      }
+
+      .x {
+        max-height: 6%;
+        max-width: 6%;
+        position: absolute;
+        opacity: 100%;
+      }
+
+      .x:hover {
+        opacity: 0%;
+      }
+
+
+      /* Media queries para hacer el diseño responsivo */
+      @media (max-width: 768px) {
+          .top-row h1 {
+              font-size: 3rem; /* Reducir tamaño de letra para dispositivos más pequeños */
+          }
+
+          .bottom-row h2 {
+              font-size: 4rem; /* Reducir tamaño de letra para dispositivos más pequeños */
+          }
+
+          .contact-form textarea {
+              font-size: 1.2rem; /* Reducir tamaño de letra en el textarea */
+          }
+
+          .email-input {
+              font-size: 1rem; /* Reducir tamaño de letra del input de email */
+          }
+
+          .send-button {
+              font-size: 1rem; /* Reducir tamaño de letra del botón */
+              width: 30%; /* Ajustar el tamaño del botón */
+          }
+      }
+
+      @media (max-width: 480px) {
+          .top-row h1 {
+              font-size: 2.5rem; /* Tamaño de letra más pequeño para móviles */
+          }
+
+          .bottom-row h2 {
+              font-size: 3rem; /* Tamaño de letra más pequeño para móviles */
+          }
+
+          .contact-form textarea {
+              font-size: 1rem; /* Tamaño de letra más pequeño en el textarea */
+          }
+
+          .email-input {
+              font-size: 0.9rem; /* Tamaño de letra más pequeño del input de email */
+          }
+
+          .send-button {
+              font-size: 0.9rem; /* Tamaño de letra más pequeño del botón */
+              width: 40%; /* Ajustar el tamaño del botón */
+          }
+      }
 
 
 /* por resolver: 
