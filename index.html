@@ -7,6 +7,7 @@
   <title>Pau's Portfolio</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.cdnfonts.com/css/laviossa" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" >
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -44,15 +45,17 @@
     </div>
   </div>
 
-  <div class="Divisor animable aparecer-bajar">
+  <div id="Divisor1" class="Divisor animable aparecer-bajar">
     <div class="dividido">
       <h2>About Me</h2>
-      <div class="divisor_titulo"><img src="dividor_titulo.svg" alt="Titulo del divisor" class="divisor_titulo2"></div>
-      <img class="moving-svg first-svg" src="divisor.svg"  alt="Divisor">
-      <img class="moving-svg second-svg" src="divisor.svg"  alt="Divisor">
-      <img class="moving-svg third-svg" src="divisor.svg"  alt="Divisor">
+      <div class="divisor_titulo">
+        <img src="dividor_titulo.svg" alt="Titulo del divisor" class="divisor_titulo2">
+      </div>
+      <img class="moving-svg first-svg" src="divisor.svg" alt="Divisor">
+      <img class="moving-svg second-svg" src="divisor.svg" alt="Divisor">
+      <img class="moving-svg third-svg" src="divisor.svg" alt="Divisor">
     </div>
-</div>
+  </div>
 <div class="aboutbody">
   <div class="aboutmecontainer">
     <div class="about-me">
@@ -209,6 +212,60 @@
   </div>
 </div>
 
+<!-- divisor otra vez -->
+ 
+  <div id="Divisor2" class="Divisor animable aparecer-bajar">
+    <div class="dividido">
+      <h2>Works</h2>
+      <div class="divisor_titulo">
+        <img src="dividor_titulo.svg" alt="Titulo del divisor" class="divisor_titulo2">
+      </div>
+      <img class="moving-svg first-svg" src="divisor.svg" alt="Divisor">
+      <img class="moving-svg second-svg" src="divisor.svg" alt="Divisor">
+      <img class="moving-svg third-svg" src="divisor.svg" alt="Divisor">
+    </div>
+  </div>
+
+<!-- galeria -->
+
+
+
+<!-- contact -->
+
+<div class="contact">
+  <div class="contact-header">
+      <!-- "LET'S" y los iconos alineados en la misma fila -->
+      <div class="top-row">
+          <h1>LET'S</h1>
+          <div class="social-icons">
+              <a href="twitter.com"><img src="software-icons/circles/x.svg" alt="Icono X" class="tw"><img src="software-icons/circles/tw.svg" alt="Icono X" class="x"></a>
+              <a href="#"><img src="software-icons/circles/ig.svg" alt="Icono Instagram"></a>
+              <a href="#"><img src="software-icons/circles/mail.svg" alt="Icono Correo"></a>
+          </div>
+      </div>
+      <!-- "KEEP IN TOUCH" en la siguiente línea -->
+      <div class="bottom-row">
+          <h2>KEEP IN TOUCH</h2>
+      </div>
+  </div>
+
+  <!-- Contenido debajo del encabezado -->
+  <div class="below-header">
+      <form action="mailto:p.leal@deiadisseny.cat" method="post" class="contact-form">
+          <textarea rows="2" placeholder="We wanted to contact you to..." >Hey Pau, I'm... </textarea>
+
+          <div class="email-and-button">
+              <input type="email" class="email-input" placeholder="your@mail.com">
+              <button type="submit" class="send-button">
+                  Send
+              </button>
+          </div>
+      </form>
+  </div>
+</div>
+
+
+
   <script>
     // animaciones que solo se reproducen cuando las ves
 
@@ -279,52 +336,60 @@
       sidebar.style.display = 'none'
     }
 
-    //    DIVISORES
-     function startAnimation() {
-          const containerWidth = window.innerWidth; // Ancho de la ventana actual
-          const svgWidth = 1320; // Ancho fijo de cada SVG
-          const duration = 8; // Duración en segundos de la animación
-          
-          // Posicionamos los SVGs uno al lado del otro, pero desde la derecha
-          const firstSvg = document.querySelector('.first-svg');
-          const secondSvg = document.querySelector('.second-svg');
-          const thirdSvg = document.querySelector('.third-svg');
-          
-          firstSvg.style.left = `${-svgWidth}px`;
-          secondSvg.style.left = `0px`;
-          thirdSvg.style.left = `${svgWidth}px`;
-      
-          // Animamos los SVGs utilizando `requestAnimationFrame` para una animación suave
-          let startTime = null;
-      
-          function animate(time) {
-            if (!startTime) startTime = time;
-            const elapsedTime = (time - startTime) / 1000; // Convertimos el tiempo en segundos
-            
-            // Calculamos el desplazamiento en función del tiempo
-            const offset = (elapsedTime / duration) * containerWidth;
-      
-            // Mueve cada SVG hacia la derecha
-            firstSvg.style.transform = `translateX(${offset}px)`;
-            secondSvg.style.transform = `translateX(${offset}px)`;
-            thirdSvg.style.transform = `translateX(${offset}px)`;
-      
-            // Reiniciar la posición cuando el primer SVG haya salido completamente de la pantalla
-            if (offset >= svgWidth) {
-              startTime = time; // Reiniciar el tiempo para reiniciar la animación
-            }
-      
-            // Continuamos la animación
-            requestAnimationFrame(animate);
-          }
-      
-          // Iniciamos la animación
-          requestAnimationFrame(animate);
-        }
-      
-        // Iniciar la animación al cargar la página
-        window.onload = startAnimation;
-        window.onresize = startAnimation; // Reiniciar la animación cuando se cambia el tamaño de la ventana
+    // DIVISORES
+function startAnimation() {
+  const containerWidth = window.innerWidth; // Ancho de la ventana actual
+  const svgWidth = 1320; // Ancho fijo de cada SVG
+  const duration = 8; // Duración en segundos de la animación
+  
+  // Seleccionamos todos los divisores
+  const divisores = document.querySelectorAll('.Divisor');
+
+  divisores.forEach((divisor) => {
+    const firstSvg = divisor.querySelector('.first-svg');
+    const secondSvg = divisor.querySelector('.second-svg');
+    const thirdSvg = divisor.querySelector('.third-svg');
+
+    // Posicionamos los SVGs uno al lado del otro, alineados
+    firstSvg.style.left = `${0}px`;
+    secondSvg.style.left = `${svgWidth}px`;
+    thirdSvg.style.left = `${2 * svgWidth}px`;
+
+    let startTime = null;
+
+    function animate(time) {
+      if (!startTime) startTime = time;
+      const elapsedTime = (time - startTime) / 1000; // Convertimos el tiempo en segundos
+
+      // Calculamos el desplazamiento en función del tiempo
+      const offset = (elapsedTime / duration) * svgWidth;
+
+      // Mueve los SVGs hacia la izquierda
+      firstSvg.style.transform = `translateX(${-offset}px)`;
+      secondSvg.style.transform = `translateX(${-offset}px)`;
+      thirdSvg.style.transform = `translateX(${-offset}px)`;
+
+      // Reiniciar la posición cuando el primer SVG haya salido completamente de la pantalla
+      if (offset >= svgWidth) {
+        startTime = time; // Reiniciar el tiempo para que la animación sea fluida
+        firstSvg.style.left = `${0}px`;
+        secondSvg.style.left = `${svgWidth}px`;
+        thirdSvg.style.left = `${2 * svgWidth}px`;
+      }
+
+      // Continuamos la animación
+      requestAnimationFrame(animate);
+    }
+
+    // Iniciamos la animación para este divisor
+    requestAnimationFrame(animate);
+  });
+}
+
+// Iniciar la animación al cargar la página
+window.onload = startAnimation;
+window.onresize = startAnimation; // Reiniciar la animación cuando se cambia el tamaño de la ventana
+
 
 // desplegable de skills
         const dropdownHeader = document.querySelector('.dropdown-header');
@@ -332,6 +397,48 @@
       const dropdown = document.querySelector('.dropdown');
       dropdown.classList.toggle('active');
     });
+
+//galeria anims
+        // Variables para controlar el desplazamiento de cada fila
+        let desplazamientoFila1 = 0;
+        let desplazamientoFila2 = 0;
+        let desplazamientoFila3 = 0;
+
+        // Función para manejar el scroll horizontal de las filas
+        function manejarScroll(e) {
+            e.preventDefault(); // Evitar el scroll vertical cuando estamos sobre las filas
+
+            const delta = e.deltaY || e.detail || e.wheelDelta; // Obtener el desplazamiento
+
+            // Ajustar la velocidad del desplazamiento y actualizar la posición de cada fila
+            desplazamientoFila1 += delta * 0.5; // Desplazarse hacia la derecha
+            desplazamientoFila2 += delta * -0.5; // Desplazarse hacia la izquierda
+            desplazamientoFila3 += delta * 0.5; // Desplazarse hacia la derecha
+
+            // Aplicar el desplazamiento a cada fila
+            document.querySelector('.fila1 .contenedor-cajas').style.transform = `translateX(${desplazamientoFila1}px)`;
+            document.querySelector('.fila2 .contenedor-cajas').style.transform = `translateX(${desplazamientoFila2}px)`;
+            document.querySelector('.fila3 .contenedor-cajas').style.transform = `translateX(${desplazamientoFila3}px)`;
+        }
+
+        // Función para volver al centro cuando no estás sobre las filas
+        function resetScrollHorizontal() {
+            window.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+
+        // Añadir y remover el evento de scroll horizontal solo cuando el cursor está sobre las filas
+        document.querySelectorAll('.fila').forEach(fila => {
+            fila.addEventListener('mouseenter', () => {
+                document.body.style.overflowY = 'hidden'; // Deshabilitar el scroll vertical
+                document.body.addEventListener('wheel', manejarScroll);
+            });
+
+            fila.addEventListener('mouseleave', () => {
+                document.body.style.overflowY = 'scroll'; // Rehabilitar el scroll vertical
+                document.body.removeEventListener('wheel', manejarScroll);
+                resetScrollHorizontal(); // Volver al centro horizontal
+            });
+        });
   </script>
 </body>
 </html>
