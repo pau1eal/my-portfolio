@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Portfolio Gallery</title>
+
+  <link
+    rel="stylesheet"
+    href="gallery.css"
+  >
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
+  ></script>
+</head>
+
+
+<body>
+
+  <!-- ========================================================
+       HEADER
+       ======================================================== -->
+
+  <header id="header">
+
+    <h1>Portfolio</h1>
+
+    <label id="upload-btn">
+
+      <span>Upload Excel</span>
+
+      <input
+        type="file"
+        id="file-input"
+        accept=".xlsx,.xls"
+        hidden
+      >
+
+    </label>
+
+  </header>
+
+
+  <!-- ========================================================
+       GALLERY
+       ======================================================== -->
+
+  <section
+    id="gallery"
+    class="gallery"
+  ></section>
+
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+
+  <footer class="footer">
+
+    <div class="footer-inner">
+
+
+      <!-- ====================================================
+           CALL TO ACTION
+           ==================================================== -->
+
+      <div class="footer-cta">
+
+        <h2>
+          Let's work together
+        </h2>
+
+        <p>
+          Open for collaborations, commissions,
+          and creative conversations.
+          Let's create something extraordinary.
+        </p>
+
+      </div>
+
+
+      <!-- ====================================================
+           TAG FILTERS
+           ==================================================== -->
+
+      <div class="footer-tags">
+
+        <h3>
+          Filter by
+        </h3>
+
+        <div
+          id="tag-filters"
+          class="tag-filters"
+        >
+
+          <!--
+            The JavaScript automatically generates
+            all available tags from the Excel.
+
+            "All" is always present.
+          -->
+
+          <button
+            type="button"
+            class="tag-filter active"
+            data-tag="all"
+          >
+            All
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ====================================================
+           FOOTER INFORMATION
+           ==================================================== -->
+
+      <div class="footer-grid">
+
+
+        <!-- CONTACT -->
+
+        <div>
+
+          <h3>
+            Contact
+          </h3>
+
+          <a href="mailto:hello@portfolio.com">
+            hello@portfolio.com
+          </a>
+
+          <p>
+            +34 600 000 000
+          </p>
+
+        </div>
+
+
+        <!-- SOCIAL -->
+
+        <div>
+
+          <h3>
+            Follow
+          </h3>
+
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+
+          <a
+            href="https://behance.net"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Behance
+          </a>
+
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+        </div>
+
+
+        <!-- STUDIO -->
+
+        <div>
+
+          <h3>
+            Studio
+          </h3>
+
+          <p>
+            Based in Madrid, working worldwide.
+            Available for freelance and full-time roles.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- ====================================================
+           FOOTER BOTTOM
+           ==================================================== -->
+
+      <div class="footer-bottom">
+
+        <p>
+          &copy; 2026 Portfolio.
+          All rights reserved.
+        </p>
+
+        <p>
+          Designed with care.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+  <!-- ========================================================
+       JAVASCRIPT
+       ======================================================== -->
+
+  <script src="gallery.js"></script>
+
+</body>
+
+</html>
