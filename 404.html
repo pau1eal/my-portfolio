@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page not found</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tus fuentes -->
+  <link href="https://fonts.cdnfonts.com/css/laviossa" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       VARIABLES (mismas que en style.css)
+       ═══════════════════════════════════════════════ */
+    :root {
+      --main-color:   #353331;
+      --second-color: #F1E2D1;
+      --beige-soft:   #E6DBC9;
+      --beige-dark:   #C7BBAD;
+      --dark-hover:   #555555;
+    }
+
+    @font-face {
+      font-family: "nympha";
+      src: url(NymphaTrial-Regular.otf);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--main-color);
+      color: var(--second-color);
+      font-family: 'Laviossa', sans-serif;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      padding: 2rem;
+      overflow-x: hidden;
+
+      /* Ocultar scrollbar, igual que en el portfolio */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    body::-webkit-scrollbar { display: none; }
+
+    /* ═══════════════════════════════════════════════
+       CONTENEDOR
+       ═══════════════════════════════════════════════ */
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       NÚMERO 404 — GIGANTE, PROTAGONISTA
+       ═══════════════════════════════════════════════ */
+    .error-number {
+      font-family: "nympha", serif;
+      font-size: clamp(8rem, 32vw, 26rem);
+      font-weight: 400;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+
+      color: var(--second-color);
+
+      margin: 0;
+      padding: 0;
+
+      /* Un pelín de sombra para darle cuerpo */
+      text-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+
+      user-select: none;
+
+      /* Animación de entrada */
+      animation: dropIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* ═══════════════════════════════════════════════
+       MENSAJE
+       ═══════════════════════════════════════════════ */
+    .error-message {
+      font-family: 'Laviossa', sans-serif;
+      font-size: clamp(1rem, 2.2vw, 1.4rem);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+
+      color: var(--second-color);
+      opacity: 0.85;
+
+      max-width: 34ch;
+
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+
+      animation: fadeUp 0.9s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* ═══════════════════════════════════════════════
+       BOTONES
+       ═══════════════════════════════════════════════ */
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+
+      animation: fadeUp 0.9s 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+
+      padding: 0.9rem 1.8rem;
+
+      font-family: 'Laviossa', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+
+      text-decoration: none;
+
+      transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Botón principal (beige) */
+    .btn--primary {
+      background-color: var(--second-color);
+      color: var(--main-color);
+    }
+    .btn--primary:hover {
+      background-color: var(--beige-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Botón secundario (outline beige) */
+    .btn--secondary {
+      background-color: transparent;
+      color: var(--second-color);
+      border: 1.5px solid var(--second-color);
+    }
+    .btn--secondary:hover {
+      background-color: var(--second-color);
+      color: var(--main-color);
+      transform: translateY(-2px);
+    }
+
+    /* Estado copiado */
+    .btn--primary.copied {
+      background-color: var(--beige-dark);
+      color: var(--main-color);
+    }
+
+    /* ═══════════════════════════════════════════════
+       ANIMACIONES
+       ═══════════════════════════════════════════════ */
+    @keyframes dropIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════ */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.25rem;
+      }
+
+      .error-message {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .error-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="error-container">
+
+    <h1 class="error-number">404</h1>
+
+    <p class="error-message">
+      This page doesn't exist yet or it's broken :(
+    </p>
+
+    <div class="error-actions">
+
+      <button
+        type="button"
+        class="btn btn--primary"
+        id="copy-email"
+      >
+        Copy my email
+      </button>
+
+      <a
+        href="index.html"
+        class="btn btn--secondary"
+      >
+        Go back
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+    /* ═══════════════════════════════════════════════
+       COPIAR EMAIL AL PORTAPAPELES
+       ═══════════════════════════════════════════════ */
+    (function initCopyEmail() {
+      const btn = document.getElementById('copy-email');
+      if (!btn) return;
+
+      const email = 'p.leal@deiadisseny.cat';
+      const originalText = btn.textContent;
+
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(email)
+          .then(() => {
+            btn.textContent = 'Copied! ✔';
+            btn.classList.add('copied');
+
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.classList.remove('copied');
+            }, 1500);
+          })
+          .catch((err) => {
+            console.error('Could not copy email:', err);
+            btn.textContent = 'Copy failed :(';
+            setTimeout(() => {
+              btn.textContent = originalText;
+            }, 1500);
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>

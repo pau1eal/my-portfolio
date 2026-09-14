@@ -7,31 +7,43 @@
   <title>Pau's Portfolio</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.cdnfonts.com/css/laviossa" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" >
   <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="gallery.css"
+  >
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
 </head>
 <body>
   <nav>
     <ul class="sidebar">
-      <li onclick=hideSidebar()><a href="#"><img src="x.svg" alt="equis" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></a></li>
-      <li><a class="yo agh" href="#seccion1">About Me</a></li>
-      <li><a class="galeria agh" href="gallery/gallery.html">Gallery</a></li>
-      <li><a class="contacto agh" href="p.leal@deiadisseny.cat">Contact</a></li>
-      <li><a class="redes agh" href="https://x.com/Pau1eal">Twitter</a></li>
+      <li onclick=hideSidebar()><a><img src="x.svg" alt="equis" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></a></li>
+      <li><a class="yo agh" href="#about">About Me</a></li>
+      <li><a class="galeria agh" href="#gallery">Gallery</a></li>
+      <li><a class="contacto agh" href="#contact">Contact</a></li>
+      <li><a class="redes agh" href="https://github.com/pau1eal">Github</a></li>
       <li><a class="redes agh" href="https://www.instagram.com/pau_1eal/">Instagram</a></li>
-      <li><a class="redes agh" href="https://t.co/018qNvrAiM">Itch.io</a></li>
-      <li><a class="redes agh" href="https://www.artstation.com/pauleal6/collections/2184216">Artstation</a></li>
+      <li><a class="redes agh" href="https://pau1eai.itch.io/">Itch.io</a></li>
+      <li><a class="redes agh" href="https://www.artstation.com/pauleal">Artstation</a></li>
       
     </ul>
     <ul>
-      <li>
-        <span class="diamante2 animable aparecer-bajar">
-        <img src="diamond.svg"  alt="Diamond Logo" class="diamante" href="#">
-       </span>
-     </li>
-      <li class="teste"><a class="yo hideOnMobile link link--jover agh" href="#">About Me</a></li>
-      <li><a class="galeria hideOnMobile link link--jover agh " href="gallery/gallery.html">Gallery</a></li>
-      <li><a class="contacto hideOnMobile link link--jover agh " href="p.leal@deiadisseny.cat">Contact</a></li>
+     <li>
+ <label id="upload-btn">
+  <span class="diamante2 animable aparecer-bajar">
+    <img src="diamond.svg" alt="Diamond Logo" class="diamante" href="#">
+  </span>
+  <input type="file" id="file-input" accept=".xlsx,.xls" hidden>
+ </label>
+</li>
+      <li><a class="yo hideOnMobile link link--jover agh" href="#about">About Me</a></li>
+      <li><a class="galeria hideOnMobile link link--jover agh" href="#gallery">Gallery</a></li>
+      <li><a class="contacto hideOnMobile link link--jover agh" href="#contact">Contact</a></li>
       <li class="menu-button" onclick=showSidebar()><a class="menuboton agh"><img src="menu.svg" alt="menu bars" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></a></li>
     </ul>
   </nav>
@@ -45,37 +57,19 @@
     </div>
   </div>
 
-  <div id="Divisor1" class="Divisor animable aparecer-bajar">
-    <div class="dividido">
-      <h2>About Me</h2>
-      <div class="divisor_titulo">
-        <img src="dividor_titulo.svg" alt="Titulo del divisor" class="divisor_titulo2">
-      </div>
-      <img class="moving-svg first-svg" src="divisor.svg" alt="Divisor">
-      <img class="moving-svg second-svg" src="divisor.svg" alt="Divisor">
-      <img class="moving-svg third-svg" src="divisor.svg" alt="Divisor">
-    </div>
-  </div>
-<div class="aboutbody">
-  <div class="aboutmecontainer">
-    <div class="about-me">
-      <div class="fotoyo1"><img src="tu_imagen.png" alt="Foto de Pau Leal Romero" class="yonomovil animable aparecer-bajar2"><img src="mini-yo-.svg" alt="funny-yo chiquito" class="miniyo animable aparecer-bajar3"> </div>
-        <div class="text-section animable aparecer-bajar">
-          <div class="fotoyo2 "><img  src="mi-imagen.jpg" alt="foto pero pa los de movil" class="yomovil animable aparecer-bajar2"><img src="mini-yo-.svg" alt="funny-yo chiquito" class="miniyo2 animable aparecer-bajar3"></div>
-        <h1 class="title-about-me animable aparecer-bajar">SOBRE MI</h1>
-        <h2 class="name-aboutme">Pau Leal Romero</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy
-        nibh euismod tincidunt ut laoreet dolore magna. Aliquam erat volutpat. Ut wisi enim ad minim
-        veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-        consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-        consequat, vel illum dolore eu.</p>
-        <p class="parrafoabajo">Feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
-        blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-        <a href="copiar mail" class="enlace-copiable hvr-bounce-out">p.leal@deieidaisseny.cat</a>
-      </div>
-     </div>
-    </div>
-</div>
+  
+                                                            <!-- parte de GALERIAAAAA -->
+
+
+
+  <section
+    id="gallery"
+    class="gallery"
+  ></section>
+
+
+
+
 
                                                             <!-- parte de skills -->
 
@@ -98,7 +92,7 @@
         <img alt="icono" src="./software-icons/ai.png">
         <div class="text-and-bar">
           <span class="skill-name">Adobe Illustrator</span>
-          <div class="progress-bar">  <div class="progress-fill" style="--progress-width: 99%;">  <p>99%</p>  </div></div>
+          <div class="progress-bar">  <div class="progress-fill" style="--progress-width: 98%;">  <p>99%</p>  </div></div>
         </div>
       </div>
       <div class="skill animable aparecer-bajar">
@@ -113,7 +107,7 @@
         <img alt="icono" src="./software-icons/paint.png">
         <div class="text-and-bar">
           <span class="skill-name">Paint.Net</span>
-          <div class="progress-bar"><div class="progress-fill" style="width: 99%;"><p>100%</p></div></div>
+          <div class="progress-bar">  <div class="progress-fill" style="--progress-width: 98%;">  <p>99%</p>  </div></div>
         </div>
       </div>
     </div>
@@ -214,33 +208,40 @@
 
 <!-- divisor otra vez -->
  
-  <div id="Divisor2" class="Divisor animable aparecer-bajar">
-    <div class="dividido">
-      <h2>Works</h2>
-      <div class="divisor_titulo">
-        <img src="dividor_titulo.svg" alt="Titulo del divisor" class="divisor_titulo2">
+
+<!-- about me -->
+
+
+<div class="aboutbody" id="about">
+  <div class="aboutmecontainer">
+    <div class="about-me">
+      <div class="fotoyo1"><img src="tu_imagen.png" alt="Foto de Pau Leal Romero" class="yonomovil animable aparecer-bajar2"><img src="mini-yo-.svg" alt="funny-yo chiquito" class="miniyo animable aparecer-bajar3"> </div>
+        <div class="text-section animable aparecer-bajar">
+          <div class="fotoyo2 "><img  src="mi-imagen.jpg" alt="foto pero pa los de movil" class="yomovil animable aparecer-bajar2"><img src="mini-yo-.svg" alt="funny-yo chiquito" class="miniyo2 animable aparecer-bajar3"></div>
+        <h1 class="title-about-me animable aparecer-bajar">ABOUT ME</h1>
+        <h2 class="name-aboutme">Pau Leal Romero</h2>
+        <p>I’m Pau, a videogame and design student, and above all, someone who genuinely loves creating. 
+        I’m interested in exploring different forms of expression, from videogames and design to art and animation, always trying to turn the ideas in my head into something that you can try.</p>
+
+        <p class="parrafoabajo">
+        This portfolio is a collection of part of that process, but also a reflection of how I see creativity and art: curiosity, experimentation, and simply wanting to keep making things.</p>
+        <a href="copiar mail" class="enlace-copiable hvr-bounce-out">pau.lealromero@gmail.com</a>
       </div>
-      <img class="moving-svg first-svg" src="divisor.svg" alt="Divisor">
-      <img class="moving-svg second-svg" src="divisor.svg" alt="Divisor">
-      <img class="moving-svg third-svg" src="divisor.svg" alt="Divisor">
+     </div>
     </div>
-  </div>
-
-<!-- galeria -->
-
-
+</div>
 
 <!-- contact -->
 
-<div class="contact">
+<div class="contact" id="contact">
   <div class="contact-header">
       <!-- "LET'S" y los iconos alineados en la misma fila -->
       <div class="top-row">
           <h1>LET'S</h1>
           <div class="social-icons">
-              <a href="twitter.com"><img src="software-icons/circles/x.svg" alt="Icono X" class="tw"><img src="software-icons/circles/tw.svg" alt="Icono X" class="x"></a>
-              <a href="#"><img src="software-icons/circles/ig.svg" alt="Icono Instagram"></a>
-              <a href="#"><img src="software-icons/circles/mail.svg" alt="Icono Correo"></a>
+              <a href="https://x.com/Pau1eal"><img src="software-icons/circles/x.svg" alt="Icono X" class="tw"><img src="software-icons/circles/tw.svg" alt="Icono X" class="x"></a>
+              <a href="https://www.instagram.com/pau_1eal"><img src="software-icons/circles/ig.svg" alt="Icono Instagram"></a>
+              <a href="mailto:pau.lealromero@gmail.com" class="copiable"><img src="software-icons/circles/mail.svg" alt="Icono Correo"></a>
           </div>
       </div>
       <!-- "KEEP IN TOUCH" en la siguiente línea -->
@@ -251,20 +252,19 @@
 
   <!-- Contenido debajo del encabezado -->
   <div class="below-header">
-      <form action="mailto:p.leal@deiadisseny.cat" method="post" class="contact-form">
+      <div class="contact-form">
           <textarea rows="2" placeholder="We wanted to contact you to..." >Hey Pau, I'm... </textarea>
 
           <div class="email-and-button">
               <input type="email" class="email-input" placeholder="your@mail.com">
-              <button type="submit" class="send-button">
-                  Send
-              </button>
+              <a href="404.html" class="send-button">Send</a>
           </div>
-      </form>
+      </div>
   </div>
 </div>
 
-
+<div class="cursor-invert cursor-invert--mouse" id="cursor-mouse"></div>
+<div class="cursor-invert cursor-invert--focus" id="cursor-focus"></div>
 
   <script>
     // animaciones que solo se reproducen cuando las ves
@@ -300,7 +300,7 @@
         evento.preventDefault(); // Evita que la página se recargue si es un enlace real
 
         // Texto a copiar al portapapeles (puedes personalizarlo si quieres)
-        const textoACopiar = 'p.leal@deiadisseny.cat';
+        const textoACopiar = 'pau.lealromero@gmail.com';
 
         // Intenta copiar al portapapeles
         navigator.clipboard.writeText(textoACopiar).then(function() {
@@ -319,6 +319,9 @@
         });
     });
 });
+
+    
+
 
     // function cambiarTexto() {
     //   var enlace = document.getElementById("miEnlace");
@@ -398,51 +401,1487 @@ window.onresize = startAnimation; // Reiniciar la animación cuando se cambia el
       dropdown.classList.toggle('active');
     });
 
-//galeria anims
-        // Variables para controlar el desplazamiento de cada fila
-        let desplazamientoFila1 = 0;
-        let desplazamientoFila2 = 0;
-        let desplazamientoFila3 = 0;
 
-        // Función para manejar el scroll horizontal de las filas
-        function manejarScroll(e) {
-            e.preventDefault(); // Evitar el scroll vertical cuando estamos sobre las filas
+    /* ═══════════════════════════════════════════════════════════
+                           CURSOR INVERSOR
+   ═══════════════════════════════════════════════════════════ */
 
-            const delta = e.deltaY || e.detail || e.wheelDelta; // Obtener el desplazamiento
+(function initCursorInvert() {
+  const cursorMouse = document.getElementById('cursor-mouse');
+  const cursorFocus = document.getElementById('cursor-focus');
+  if (!cursorMouse || !cursorFocus) return;
 
-            // Ajustar la velocidad del desplazamiento y actualizar la posición de cada fila
-            desplazamientoFila1 += delta * 0.5; // Desplazarse hacia la derecha
-            desplazamientoFila2 += delta * -0.5; // Desplazarse hacia la izquierda
-            desplazamientoFila3 += delta * 0.5; // Desplazarse hacia la derecha
+  // Si el dispositivo es táctil, no hacemos nada
+  if (window.matchMedia('(hover: none)').matches) return;
 
-            // Aplicar el desplazamiento a cada fila
-            document.querySelector('.fila1 .contenedor-cajas').style.transform = `translateX(${desplazamientoFila1}px)`;
-            document.querySelector('.fila2 .contenedor-cajas').style.transform = `translateX(${desplazamientoFila2}px)`;
-            document.querySelector('.fila3 .contenedor-cajas').style.transform = `translateX(${desplazamientoFila3}px)`;
+  /* ───────────────────────────────────────────
+     CURSOR DEL RATÓN (con lerp)
+     ─────────────────────────────────────────── */
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+
+  let cursorMX = mouseX;
+  let cursorMY = mouseY;
+
+  const style = getComputedStyle(document.documentElement);
+  const lerp = parseFloat(style.getPropertyValue('--cursor-lerp')) || 0.12;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorMouse.classList.add('is-active');
+  });
+
+  document.addEventListener('mouseleave', () => {
+    cursorMouse.classList.remove('is-active');
+  });
+  document.addEventListener('mouseenter', () => {
+    cursorMouse.classList.add('is-active');
+  });
+
+  function animateMouse() {
+    cursorMX += (mouseX - cursorMX) * lerp;
+    cursorMY += (mouseY - cursorMY) * lerp;
+
+    cursorMouse.style.left = cursorMX + 'px';
+    cursorMouse.style.top  = cursorMY + 'px';
+
+    requestAnimationFrame(animateMouse);
+  }
+
+  animateMouse();
+
+
+  /* ───────────────────────────────────────────
+     CURSOR DEL FOCO (Tab)
+     ───────────────────────────────────────────
+     Se coloca en el centro del elemento con foco.
+     Se oculta cuando no hay foco visible.
+     ─────────────────────────────────────────── */
+
+  function updateFocusCursor() {
+    const el = document.activeElement;
+
+    // Si no hay nada con foco, o es el body, lo ocultamos
+    if (!el || el === document.body) {
+      cursorFocus.classList.remove('is-active');
+      return;
+    }
+
+    const rect = el.getBoundingClientRect();
+
+    // Si el elemento no tiene tamaño (oculto), lo ocultamos
+    if (rect.width === 0 && rect.height === 0) {
+      cursorFocus.classList.remove('is-active');
+      return;
+    }
+
+    cursorFocus.style.left = (rect.left + rect.width / 2) + 'px';
+    cursorFocus.style.top  = (rect.top + rect.height / 2) + 'px';
+    cursorFocus.classList.add('is-active');
+  }
+
+  document.addEventListener('focusin', updateFocusCursor);
+  document.addEventListener('focusout', () => {
+    // Pequeño delay para que no parpadee al cambiar de un campo a otro
+    setTimeout(updateFocusCursor, 20);
+  });
+
+  // Si el usuario scrollea, el elemento con foco se mueve → actualizamos
+  window.addEventListener('scroll', updateFocusCursor, { passive: true });
+  window.addEventListener('resize', updateFocusCursor);
+})();
+        
+                                                         //PARTE para la galeria,,,
+
+
+const NUM_ROWS = 3;
+const DEFAULT_EXCEL = 'proyectos.xlsx';
+
+const PASTEL_PALETTE = {
+  mint: {
+    bg: '#E0F2F1',
+    text: '#004D40'
+  },
+
+  rose: {
+    bg: '#FCE4EC',
+    text: '#880E4F'
+  },
+
+  lavender: {
+    bg: '#F3E5F5',
+    text: '#4A148C'
+  },
+
+  azure: {
+    bg: '#E1F5FE',
+    text: '#01579B'
+  },
+
+  gold: {
+    bg: '#FFF8E1',
+    text: '#8D6E00'
+  },
+
+  silver: {
+    bg: '#ECEFF1',
+    text: '#37474F'
+  },
+
+  default: {
+    bg: '#ECEFF1',
+    text: '#37474F'
+  },
+
+  none: {
+    bg: '#ECEFF1',
+    text: '#37474F'
+  }
+};
+
+const FALLBACK_COLOR = {
+  bg: '#ECEFF1',
+  text: '#37474F'
+};
+
+
+const gallery = document.getElementById('gallery');
+const fileInput = document.getElementById('file-input');
+const tagFilters = document.getElementById('tag-filters');
+
+
+let rowsData = [];
+let positions = [];
+let rowWidths = [];
+
+let pausedRows = new Set();
+
+let wheelVelocity = 0;
+let animationFrame = null;
+let lastTime = performance.now();
+
+let activeTag = 'all';
+
+
+/* ============================================================
+   ROW CONFIGURATION
+   ============================================================ */
+
+function generateRowConfig(numRows) {
+  return Array.from(
+    { length: numRows },
+    (_, i) => {
+
+      const isEvenRow = (i + 1) % 2 === 0;
+
+      return {
+        isEvenRow,
+
+        minSpeed: isEvenRow
+          ? 0.4
+          : 0.8,
+
+        direction: isEvenRow
+          ? -1
+          : 1,
+
+        brickOffset: isEvenRow
+      };
+    }
+  );
+}
+
+
+/* ============================================================
+   VALUE CLEANING
+   ============================================================ */
+
+function cleanValue(value) {
+  if (
+    value === null ||
+    value === undefined
+  ) {
+    return '';
+  }
+
+  return String(value).trim();
+}
+
+
+/* ============================================================
+   EXCEL HTML VALUE PARSING
+   ============================================================ */
+
+function parseSrc(value) {
+
+  const text = cleanValue(value);
+
+  if (!text) {
+    return '';
+  }
+
+  const match = text.match(
+    /src\s*=\s*["']([^"']+)["']/i
+  );
+
+  return match
+    ? match[1]
+    : text;
+}
+
+
+function parseHref(value) {
+
+  const text = cleanValue(value);
+
+  if (!text) {
+    return '';
+  }
+
+  const match = text.match(
+    /href\s*=\s*["']([^"']+)["']/i
+  );
+
+  return match
+    ? match[1]
+    : text;
+}
+
+
+/* ============================================================
+   COLOR
+   ============================================================ */
+
+function resolveColor(value) {
+
+  const key = cleanValue(value).toLowerCase();
+
+  const aliases = {
+    green: 'mint',
+    pink: 'rose',
+    purple: 'lavender',
+    blue: 'azure',
+    yellow: 'gold',
+    grey: 'silver',
+    gray: 'silver'
+  };
+
+  const normalizedKey =
+    aliases[key] || key;
+
+  return (
+    PASTEL_PALETTE[normalizedKey] ||
+    FALLBACK_COLOR
+  );
+}
+
+
+/* ============================================================
+   NORMALIZE EXCEL ROW
+   ============================================================ */
+
+function normalizeItem(row) {
+
+  const colorValue =
+    cleanValue(
+      row['color default'] ??
+      row['silver']
+    );
+
+  return {
+
+    id:
+      cleanValue(row['ID']),
+
+    title:
+      cleanValue(row['display-name']),
+
+    tags:
+      cleanValue(row['tags']),
+
+    image:
+      parseSrc(row['imagen']),
+
+    tier:
+      cleanValue(row['tier'])
+        .toUpperCase(),
+
+    link:
+      parseHref(row['links']),
+
+    colorValue,
+
+    color:
+      resolveColor(colorValue)
+  };
+}
+
+
+/* ============================================================
+   PARAMETER VALIDATION
+   ============================================================ */
+
+/*
+  A project only enters the gallery if every parameter
+  expected by the portfolio is present in Excel.
+
+  This keeps the system procedural.
+  Nothing is filtered by project name.
+*/
+
+function hasAllParameters(item) {
+
+  return Boolean(
+
+    item.id &&
+    item.title &&
+    item.tags &&
+    item.image &&
+    item.tier &&
+    item.link &&
+    item.colorValue
+
+  );
+}
+
+
+/* ============================================================
+   WEIGHTED RANDOMIZATION
+   ============================================================ */
+
+function buildWeightedList(items) {
+
+  const weights = {
+    S: 5,
+    A: 4,
+    B: 3,
+    C: 2,
+    D: 1
+  };
+
+  const weighted = [];
+
+  items.forEach(item => {
+
+    const weight =
+      weights[item.tier] || 1;
+
+    for (
+      let i = 0;
+      i < weight;
+      i++
+    ) {
+      weighted.push(item);
+    }
+
+  });
+
+
+  /*
+    Fisher-Yates shuffle
+  */
+
+  for (
+    let i = weighted.length - 1;
+    i > 0;
+    i--
+  ) {
+
+    const j =
+      Math.floor(
+        Math.random() * (i + 1)
+      );
+
+    [
+      weighted[i],
+      weighted[j]
+    ] = [
+      weighted[j],
+      weighted[i]
+    ];
+  }
+
+
+  return weighted;
+}
+
+
+/* ============================================================
+   DISTRIBUTE PROJECTS INTO ROWS
+   ============================================================ */
+
+function distributeIntoRows(
+  items,
+  numRows
+) {
+
+  const configs =
+    generateRowConfig(numRows);
+
+
+  /*
+    Large projects:
+    only S and A.
+
+    These are allowed in the larger
+    even-numbered rows.
+  */
+
+  const largeItems =
+    items.filter(
+      item =>
+        item.tier === 'A' ||
+        item.tier === 'S'
+    );
+
+
+  const allItems = [...items];
+
+
+  const largeRows =
+    configs
+      .map(
+        (config, index) => ({
+          config,
+          index
+        })
+      )
+      .filter(
+        ({ config }) =>
+          config.isEvenRow
+      )
+      .map(
+        ({ index }) =>
+          index
+      );
+
+
+  const allRows =
+    configs
+      .map(
+        (config, index) => ({
+          config,
+          index
+        })
+      )
+      .filter(
+        ({ config }) =>
+          !config.isEvenRow
+      )
+      .map(
+        ({ index }) =>
+          index
+      );
+
+
+  const result =
+    Array.from(
+      { length: numRows },
+      () => []
+    );
+
+
+  function distributePool(
+    pool,
+    targetRows
+  ) {
+
+    if (
+      !targetRows.length ||
+      !pool.length
+    ) {
+      return;
+    }
+
+
+    const shuffled =
+      buildWeightedList(pool);
+
+
+    shuffled.forEach(
+      (item, index) => {
+
+        const rowIndex =
+          targetRows[
+            index % targetRows.length
+          ];
+
+        result[rowIndex].push(item);
+      }
+    );
+  }
+
+
+  distributePool(
+    largeItems,
+    largeRows
+  );
+
+
+  distributePool(
+    allItems,
+    allRows
+  );
+
+
+  return result;
+}
+
+
+/* ============================================================
+   EXCEL PARSING
+   ============================================================ */
+
+function parseExcel(arrayBuffer) {
+
+  const workbook =
+    XLSX.read(
+      arrayBuffer,
+      { type: 'array' }
+    );
+
+
+  const sheet =
+    workbook.Sheets[
+      workbook.SheetNames[0]
+    ];
+
+
+  const rawRows =
+    XLSX.utils.sheet_to_json(
+      sheet,
+      {
+        defval: null
+      }
+    );
+
+
+  const items =
+    rawRows
+      .map(normalizeItem)
+      .filter(hasAllParameters);
+
+
+  return distributeIntoRows(
+    items,
+    NUM_ROWS
+  );
+}
+
+
+/* ============================================================
+   HTML ESCAPING
+   ============================================================ */
+
+function escapeHtml(value) {
+
+  return String(value)
+
+    .replaceAll(
+      '&',
+      '&amp;'
+    )
+
+    .replaceAll(
+      '<',
+      '&lt;'
+    )
+
+    .replaceAll(
+      '>',
+      '&gt;'
+    )
+
+    .replaceAll(
+      '"',
+      '&quot;'
+    )
+
+    .replaceAll(
+      "'",
+      '&#039;'
+    );
+}
+
+
+/* ============================================================
+   CREATE PROJECT CARD
+   ============================================================ */
+
+function createCard(item) {
+
+  const card =
+    document.createElement('a');
+
+
+  card.className =
+    'gallery-item';
+
+
+  card.href =
+    item.link &&
+    item.link !== 'none'
+      ? item.link
+      : '#';
+
+
+  card.dataset.id =
+    item.id;
+
+
+  card.dataset.tier =
+    item.tier;
+
+
+  /*
+    External links open in a new tab.
+  */
+
+  if (
+    item.link &&
+    item.link !== 'none'
+  ) {
+
+    card.target = '_blank';
+
+    card.rel =
+      'noopener noreferrer';
+
+  } else {
+
+    card.addEventListener(
+      'click',
+      event => {
+        event.preventDefault();
+      }
+    );
+  }
+
+
+  /*
+    Tags are read directly from Excel.
+  */
+
+  const tags =
+    item.tags
+      .split(',')
+      .map(
+        tag => tag.trim()
+      )
+      .filter(Boolean);
+
+
+  const tagsHTML =
+    tags
+      .map(
+        tag => `
+          <span class="gallery-tag">
+            ${escapeHtml(tag)}
+          </span>
+        `
+      )
+      .join('');
+
+
+  card.innerHTML = `
+  <img
+    src="${escapeHtml(item.image)}"
+    alt="${escapeHtml(item.title)}"
+    loading="lazy"
+  >
+
+  <div class="item-overlay">
+
+    <div class="item-title">
+      ${escapeHtml(item.title)}
+    </div>
+
+    <div class="gallery-tags">
+      ${tagsHTML}
+    </div>
+
+  </div>
+`;
+
+
+  /*
+    Project color comes from Excel.
+  */
+
+  card.style.setProperty(
+    '--item-bg',
+    item.color.bg
+  );
+
+
+  card.style.setProperty(
+    '--item-text',
+    item.color.text
+  );
+
+
+  /*
+    Pause the row while hovering
+    over a project.
+  */
+
+  card.addEventListener(
+    'mouseenter',
+    () => {
+
+      const row =
+        card.closest(
+          '.gallery-row'
+        );
+
+      if (!row) {
+        return;
+      }
+
+      const index =
+        Number(
+          row.dataset.rowIndex
+        );
+
+      pausedRows.add(index);
+    }
+  );
+
+
+  card.addEventListener(
+    'mouseleave',
+    () => {
+
+      const row =
+        card.closest(
+          '.gallery-row'
+        );
+
+      if (!row) {
+        return;
+      }
+
+      const index =
+        Number(
+          row.dataset.rowIndex
+        );
+
+      pausedRows.delete(index);
+    }
+  );
+
+
+  return card;
+}
+
+
+/* ============================================================
+   GET TAGS
+   ============================================================ */
+
+function getAllTags(items) {
+
+  const tags =
+    new Set();
+
+
+  items.forEach(item => {
+
+    item.tags
+      .split(',')
+      .map(
+        tag => tag.trim()
+      )
+      .filter(Boolean)
+      .forEach(tag => {
+
+        tags.add(tag);
+
+      });
+
+  });
+
+
+  return [...tags].sort(
+    (a, b) =>
+      a.localeCompare(
+        b,
+        undefined,
+        {
+          sensitivity: 'base'
+        }
+      )
+  );
+}
+
+
+/* ============================================================
+   TAG FILTER BUTTONS
+   ============================================================ */
+
+function renderTagFilters(items) {
+
+  if (!tagFilters) {
+    return;
+  }
+
+
+  const tags =
+    getAllTags(items);
+
+
+  tagFilters.innerHTML = '';
+
+
+  const allButton =
+    document.createElement('button');
+
+
+  allButton.type = 'button';
+
+  allButton.className =
+    'tag-filter active';
+
+  allButton.dataset.tag =
+    'all';
+
+  allButton.textContent =
+    'All';
+
+
+  allButton.addEventListener(
+    'click',
+    () => {
+      setActiveTag('all');
+    }
+  );
+
+
+  tagFilters.appendChild(
+    allButton
+  );
+
+
+  tags.forEach(tag => {
+
+    const button =
+      document.createElement('button');
+
+
+    button.type = 'button';
+
+    button.className =
+      'tag-filter';
+
+    button.dataset.tag =
+      tag;
+
+    button.textContent =
+      tag;
+
+
+    button.addEventListener(
+      'click',
+      () => {
+        setActiveTag(tag);
+      }
+    );
+
+
+    tagFilters.appendChild(
+      button
+    );
+
+  });
+}
+
+
+/* ============================================================
+   FILTER PROJECTS
+   ============================================================ */
+
+function setActiveTag(tag) {
+
+  activeTag = tag;
+
+
+  /*
+    Update active filter button.
+  */
+
+  document
+    .querySelectorAll(
+      '.tag-filter'
+    )
+    .forEach(button => {
+
+      button.classList.toggle(
+        'active',
+        button.dataset.tag === tag
+      );
+
+    });
+
+
+  /*
+    Instead of simply hiding individual cards,
+    we rebuild the visible rows.
+
+    This is important because the infinite
+    scrolling calculation needs to know the
+    actual width of the visible sequence.
+  */
+
+  const filteredItems =
+    rowsData
+      .flat()
+      .filter(item => {
+
+        if (tag === 'all') {
+          return true;
         }
 
-        // Función para volver al centro cuando no estás sobre las filas
-        function resetScrollHorizontal() {
-            window.scrollTo({ left: 0, behavior: 'smooth' });
-        }
+        return item.tags
+          .split(',')
+          .map(
+            itemTag =>
+              itemTag.trim()
+          )
+          .includes(tag);
 
-        // Añadir y remover el evento de scroll horizontal solo cuando el cursor está sobre las filas
-        document.querySelectorAll('.fila').forEach(fila => {
-            fila.addEventListener('mouseenter', () => {
-                document.body.style.overflowY = 'hidden'; // Deshabilitar el scroll vertical
-                document.body.addEventListener('wheel', manejarScroll);
-            });
+      });
 
-            fila.addEventListener('mouseleave', () => {
-                document.body.style.overflowY = 'scroll'; // Rehabilitar el scroll vertical
-                document.body.removeEventListener('wheel', manejarScroll);
-                resetScrollHorizontal(); // Volver al centro horizontal
-            });
+
+  const newRows =
+    distributeIntoRows(
+      filteredItems,
+      NUM_ROWS
+    );
+
+
+  renderRowsOnly(newRows);
+}
+
+
+/* ============================================================
+   RENDER GALLERY
+   ============================================================ */
+
+function renderGallery(data) {
+
+  rowsData = data;
+
+  renderTagFilters(
+    data.flat()
+  );
+
+  renderRowsOnly(data);
+}
+
+
+/* ============================================================
+   RENDER ROWS
+   ============================================================ */
+
+function renderRowsOnly(data) {
+
+  gallery.innerHTML = '';
+
+  positions =
+    data.map(() => 0);
+
+  rowWidths =
+    data.map(() => 0);
+
+
+  const configs =
+    generateRowConfig(NUM_ROWS);
+
+
+  data.forEach(
+    (items, rowIndex) => {
+
+      const config =
+        configs[rowIndex];
+
+
+      const row =
+        document.createElement('div');
+
+
+      row.className =
+        `gallery-row ${
+          config.isEvenRow
+            ? 'row-center'
+            : 'row-outer'
+        }`;
+
+
+      row.dataset.rowIndex =
+        rowIndex;
+
+
+      const track =
+        document.createElement('div');
+
+
+      track.className =
+        'gallery-track';
+
+
+      /*
+        Repeat the same procedural sequence
+        several times so the animation has
+        enough content to loop seamlessly.
+      */
+
+      const repeatCount = 4;
+
+
+      for (
+        let repeat = 0;
+        repeat < repeatCount;
+        repeat++
+      ) {
+
+        items.forEach(item => {
+
+          track.appendChild(
+            createCard(item)
+          );
+
         });
+
+      }
+
+
+      /*
+        Even rows have the brick offset.
+      */
+
+      if (config.brickOffset) {
+
+        track.style.paddingLeft =
+          '3rem';
+
+      }
+
+
+      row.appendChild(track);
+
+      gallery.appendChild(row);
+
+    }
+  );
+
+
+  requestAnimationFrame(
+    measureRows
+  );
+}
+
+
+/* ============================================================
+   MEASURE LOOP WIDTH
+   ============================================================ */
+
+function measureRows() {
+
+  const rowElements =
+    [
+      ...gallery.querySelectorAll(
+        '.gallery-row'
+      )
+    ];
+
+
+  rowElements.forEach(
+    (row, index) => {
+
+      const track =
+        row.querySelector(
+          '.gallery-track'
+        );
+
+
+      const itemsPerSet =
+        rowsData[index]?.length || 0;
+
+
+      if (
+        !track ||
+        !itemsPerSet ||
+        !track.children[
+          itemsPerSet
+        ]
+      ) {
+
+        rowWidths[index] = 0;
+
+        return;
+      }
+
+
+      /*
+        The position of the first item
+        in the second repetition is
+        the exact width of one sequence.
+      */
+
+      rowWidths[index] =
+        track.children[
+          itemsPerSet
+        ].offsetLeft;
+
+    }
+  );
+}
+
+
+/* ============================================================
+   ANIMATION
+   ============================================================ */
+
+function animate(time) {
+
+  const dt =
+    Math.min(
+      (time - lastTime) / 16.6667,
+      3
+    );
+
+
+  lastTime = time;
+
+
+  const configs =
+    generateRowConfig(
+      NUM_ROWS
+    );
+
+
+  positions =
+    positions.map(
+      (position, index) => {
+
+        if (
+          pausedRows.has(index) ||
+          !rowWidths[index]
+        ) {
+          return position;
+        }
+
+
+        const config =
+          configs[index];
+
+
+        let speed =
+          config.minSpeed *
+          config.direction;
+
+
+        speed +=
+          wheelVelocity *
+          config.direction;
+
+
+        let next =
+          position +
+          speed *
+          dt;
+
+
+        const width =
+          rowWidths[index];
+
+
+        while (
+          next <= -width
+        ) {
+          next += width;
+        }
+
+
+        while (
+          next >= 0
+        ) {
+          next -= width;
+        }
+
+
+        return next;
+
+      }
+    );
+
+
+  /*
+    Wheel momentum gradually disappears.
+  */
+
+  wheelVelocity *=
+    Math.pow(
+      0.9,
+      dt
+    );
+
+
+  gallery
+    .querySelectorAll(
+      '.gallery-row'
+    )
+    .forEach(
+      (row, index) => {
+
+        const track =
+          row.querySelector(
+            '.gallery-track'
+          );
+
+
+        if (track) {
+
+          track.style.transform =
+            `translate3d(
+              ${positions[index]}px,
+              0,
+              0
+            )`;
+
+        }
+
+      }
+    );
+
+
+  animationFrame =
+    requestAnimationFrame(
+      animate
+    );
+}
+
+
+/* ============================================================
+   START ANIMATION
+   ============================================================ */
+
+function startAnimation() {
+
+  if (animationFrame) {
+
+    cancelAnimationFrame(
+      animationFrame
+    );
+
+  }
+
+
+  lastTime =
+    performance.now();
+
+
+  animationFrame =
+    requestAnimationFrame(
+      animate
+    );
+}
+
+
+/* ============================================================
+   MOUSE WHEEL
+   ============================================================ */
+
+gallery.addEventListener(
+  'wheel',
+  event => {
+
+    event.preventDefault();
+
+
+    const delta =
+      Math.sign(
+        event.deltaY
+      ) *
+      Math.min(
+        Math.abs(event.deltaY),
+        80
+      );
+
+
+    wheelVelocity +=
+      delta * 0.12;
+
+  },
+  {
+    passive: false
+  }
+);
+
+
+/* ============================================================
+   WINDOW RESIZE
+   ============================================================ */
+
+window.addEventListener(
+  'resize',
+  () => {
+    requestAnimationFrame(
+      measureRows
+    );
+  }
+);
+
+
+/* ============================================================
+   MANUAL EXCEL UPLOAD
+   ============================================================ */
+
+fileInput?.addEventListener(
+  'change',
+  event => {
+
+    const file =
+      event.target.files?.[0];
+
+
+    if (!file) {
+      return;
+    }
+
+
+    const reader =
+      new FileReader();
+
+
+    reader.onload =
+      event => {
+
+        try {
+
+          const data =
+            parseExcel(
+              event.target.result
+            );
+
+
+          activeTag = 'all';
+
+          renderGallery(data);
+
+
+        } catch (error) {
+
+          console.error(
+            'Could not read Excel file:',
+            error
+          );
+
+
+          alert(
+            'No se ha podido leer el Excel.'
+          );
+
+        }
+
+      };
+
+
+    reader.readAsArrayBuffer(
+      file
+    );
+
+  }
+);
+
+
+/* ============================================================
+   DEFAULT EXCEL
+   ============================================================ */
+
+async function loadDefaultExcel() {
+
+  try {
+
+    const url =
+      new URL(
+        DEFAULT_EXCEL,
+        document.baseURI
+      );
+
+
+    const response =
+      await fetch(
+        url.href,
+        {
+          cache: 'no-store'
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        `HTTP ${response.status}`
+      );
+
+    }
+
+
+    const buffer =
+      await response.arrayBuffer();
+
+
+    const data =
+      parseExcel(buffer);
+
+
+    renderGallery(data);
+
+
+    console.info(
+      `Portfolio loaded from ${url.href}`
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      'Could not automatically load the default Excel:',
+      error
+    );
+
+
+    if (
+      window.location.protocol ===
+      'file:'
+    ) {
+
+      console.warn(
+        'Automatic Excel loading requires ' +
+        'the portfolio to be served through HTTP/HTTPS.'
+      );
+
+    }
+
+  }
+
+}
+
+
+/* ============================================================
+   INIT
+   ============================================================ */
+
+loadDefaultExcel();
+
+startAnimation();
+
   </script>
 </body>
 </html>
 
-  <!-- arreglar lo de screollear abajo, cambiar animacion de correo para librarse del copy, cerrar la sidebar te vuelve pa arriba, bar-animable, PORQUE COJOES S EVA PA ARRIBA CUANDO ACTUALIZAS -->
+  <!-- COPIAR correo no mandarlo, arreglar lo de screollear abajo  VV, cambiar animacion de correo para librarse del copy, cerrar la sidebar te vuelve pa arriba VV, bar-animabl VVe, PORQUE COJOES S EVA PA ARRIBA CUANDO ACTUALIZAS VV -->
 
 
